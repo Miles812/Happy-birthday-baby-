@@ -1,0 +1,509 @@
+:root {
+  --rose: #b85c72;
+  --deep: #5d2d3c;
+  --ink: #35262b;
+  --muted: #876e75;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      #ffffff 0,
+      #fff8f5 35%,
+      #f6dfe3 100%
+    );
+
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* subtle film grain */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .045;
+  z-index: 20;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* HERO */
+
+.hero {
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 50px 22px;
+
+  position: relative;
+}
+
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .24em;
+  font-size: .67rem;
+  color: var(--rose);
+  font-weight: 600;
+
+  margin: 0 0 22px;
+}
+
+
+.date {
+  font-size: .75rem;
+  letter-spacing: .3em;
+  color: var(--muted);
+
+  margin: 3px 0 12px;
+}
+
+
+h1,
+h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  line-height: .9;
+
+  margin: 0;
+
+  color: var(--deep);
+}
+
+
+h1 {
+  font-size: clamp(4.2rem, 17vw, 8.5rem);
+  letter-spacing: -.055em;
+}
+
+
+h1 em,
+h2 em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+
+.subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+
+  margin: 24px 0 30px;
+
+  color: #72555e;
+}
+
+
+/* BUTTON */
+
+.primary,
+.small-btn,
+.again {
+  border: 0;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+}
+
+
+.primary {
+  background: var(--deep);
+  color: white;
+
+  border-radius: 100px;
+
+  padding: 15px 23px 15px 26px;
+
+  font-size: .85rem;
+
+  box-shadow: 0 12px 30px #6d344632;
+
+  transition: .3s;
+}
+
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px #6d34464a;
+}
+
+
+.primary span {
+  display: inline-block;
+  margin-left: 12px;
+
+  transition: .3s;
+}
+
+
+.primary:hover span {
+  transform: scale(1.3);
+}
+
+
+.hint {
+  font-size: .65rem;
+  color: #a58e94;
+
+  margin-top: 14px;
+}
+
+
+/* FLOATING HEART */
+
+.heart-orbit {
+  width: 90px;
+  height: 90px;
+
+  border: 1px solid #b85c7240;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 14%;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--rose);
+  font-size: 1.2rem;
+
+  animation: spin 16s linear infinite;
+}
+
+
+/* LETTER */
+
+.letter {
+  padding: 10vh 18px 14vh;
+
+  display: flex;
+  justify-content: center;
+
+  background: #fff9f6cc;
+}
+
+
+.card {
+  max-width: 680px;
+  width: 100%;
+
+  background: #ffffff;
+
+  box-shadow: 0 25px 80px #6b35431c;
+
+  padding: clamp(30px, 7vw, 65px);
+
+  border: 1px solid #b85c7218;
+
+  position: relative;
+}
+
+
+.card:before {
+  content: "";
+
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid #b85c7218;
+
+  pointer-events: none;
+}
+
+
+.card-top {
+  text-align: center;
+
+  text-transform: uppercase;
+
+  letter-spacing: .18em;
+
+  font-size: .6rem;
+
+  color: var(--rose);
+
+  margin-bottom: 42px;
+}
+
+
+.card h2 {
+  font-size: clamp(3rem, 10vw, 5rem);
+
+  margin-bottom: 28px;
+}
+
+
+.message {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 1.3rem;
+
+  line-height: 1.55;
+
+  color: #604a51;
+}
+
+
+.message p {
+  margin: 0 0 20px;
+}
+
+
+.message em {
+  color: var(--rose);
+}
+
+
+.signature {
+  text-align: right;
+
+  margin-top: 35px !important;
+
+  color: var(--rose);
+}
+
+
+.small-btn {
+  display: block;
+
+  margin: 30px auto 0;
+
+  background: transparent;
+
+  color: var(--rose);
+
+  border-bottom: 1px solid #b85c7266;
+
+  padding: 8px 2px;
+
+  font-size: .76rem;
+}
+
+
+/* FINAL SECTION */
+
+.reveal {
+  min-height: 90vh;
+
+  padding: 13vh 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: var(--deep);
+
+  color: #fceff1;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.reveal:before {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  background: #b85c7222;
+
+  filter: blur(20px);
+}
+
+
+.reveal > * {
+  position: relative;
+}
+
+
+.reveal .eyebrow {
+  color: #e9a7b7;
+}
+
+
+.reveal h2 {
+  color: #ffffff;
+
+  font-size: clamp(4rem, 15vw, 7rem);
+}
+
+
+.reveal > p:not(.eyebrow) {
+  max-width: 420px;
+
+  color: #e9cfd5;
+
+  line-height: 1.7;
+}
+
+
+.stars {
+  color: #eab0bd;
+
+  margin-bottom: 25px;
+}
+
+
+.big-heart {
+  font-size: 4rem;
+
+  color: #e58ba1;
+
+  margin: 38px 0 22px;
+
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+
+.again {
+  background: transparent;
+
+  color: #f8dce2;
+
+  border: 1px solid #f8dce255;
+
+  border-radius: 100px;
+
+  padding: 11px 18px;
+
+  font-size: .72rem;
+}
+
+
+/* PETALS */
+
+.petals {
+  position: fixed;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+.petals span {
+  position: absolute;
+
+  top: -20px;
+
+  color: #b85c7230;
+
+  animation: fall linear infinite;
+}
+
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+
+  padding: 25px;
+
+  color: #aa8e96;
+
+  font-size: .58rem;
+
+  letter-spacing: .12em;
+
+  background: #fff9f6;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fall {
+  to {
+    transform:
+      translateY(110vh)
+      rotate(240deg);
+
+    opacity: 0;
+  }
+}
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .heart-orbit {
+    top: 9%;
+  }
+
+  .hero {
+    padding-top: 90px;
+  }
+
+  .message {
+    font-size: 1.18rem;
+  }
+
+  .card {
+    padding: 34px 28px;
+  }
+
+  .card:before {
+    inset: 8px;
+  }
+
+}
